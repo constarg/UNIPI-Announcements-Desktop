@@ -20,8 +20,7 @@ class UpdateHandler():
 			# We are trying to do a get request.
 			respone=requests.get(url)
 		except ConnectionError:
-			pass
-			# do samething here.
+			return 0
 
 		if respone.status_code==200:
 			# We get the latest announcement
@@ -72,3 +71,7 @@ class UpdateHandler():
 		Notify.init("University News")
 		newNotification=Notify.Notification.new("There is an announcement from the University of Piraeus.",title,"/home/rounnus/Pictures/anime_notifier/icon.png")
 		newNotification.show()
+
+
+#testing=UpdateHandler()
+#testing.getMostRecent()

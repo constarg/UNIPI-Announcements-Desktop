@@ -1,5 +1,8 @@
 {
-	"configInfo": {
-		"isCSStudent": false
-	}
+    "configInfo": {
+        "isCSStudent": false,
+        "startONPowerButtonON": false,
+        "csButtonON": false,
+        "nonCSButtonON": true
+    }
 }
