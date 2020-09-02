@@ -15,10 +15,6 @@ class UIBuilder():
 		self.builder=Gtk.Builder()
 		self.builder.add_from_file(self.filePath)
 		self.window=self.builder.get_object("mainWindow")
-		self.submit=self.builder.get_object("submitButton")
-		self.cancel=self.builder.get_object("cancelButton")
-		self.window.connect("destroy",self.destroy)
-		self.cancel.connect("clicked",self.destroy)
 
 	def destroy(self,widget):
 		Gtk.main_quit()
@@ -32,6 +28,8 @@ class Settings(UIBuilder):
 		super().__init__("../GUI/glade/settings.glade") # We create the basic features
 		self.configPath="../config/config.json"
 		# Below we define which items we will use
+		self.submit=self.builder.get_object("submitButton")
+		self.cancel=self.builder.get_object("cancelButton")
 		self.startOnSwitch=self.builder.get_object("starton-switch")
 		self.csStudentSwitch=self.builder.get_object("CS-switch")
 		self.nonCSStudentSwitch=self.builder.get_object("NonCS-switch")
@@ -39,9 +37,13 @@ class Settings(UIBuilder):
 		self.csStudentSwitch.set_active(jsonHandler.readJson(self.configPath)['configInfo']['csButtonON'])
 		self.nonCSStudentSwitch.set_active(jsonHandler.readJson(self.configPath)['configInfo']['nonCSButtonON'])
 		# Below we define what will be the functions of each object in the window.
+		self.window.connect("destroy",self.destroy)
+		self.cancel.connect("clicked",self.destroy)
 		self.startOnSwitch.connect("button-press-event",self.startOnPower)
 		self.csStudentSwitch.connect("button-press-event",self.sigleSwitchON)
+		self.csStudentSwitch.connect("key-press-event",self.sigleSwitchON)
 		self.nonCSStudentSwitch.connect("button-press-event",self.sigleSwitchON)
+		self.nonCSStudentSwitch.connect("key-press-event",self.sigleSwitchON)
 		self.submit.connect("clicked",self.onSubmit)
 
 	def onSubmit(self,widget):
@@ -80,3 +82,5 @@ class Settings(UIBuilder):
 		pass
 
 
+Settings()
+Gtk.main()
