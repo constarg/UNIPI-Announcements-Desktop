@@ -9,7 +9,6 @@ fi
 
 # Require paths
 icon="$(pwd)/icon/icon.png"
-echo $executableFile
 
 echo "Creating the Luncher..."
 
