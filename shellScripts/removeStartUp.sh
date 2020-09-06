@@ -1,0 +1,1 @@
+rm ~/.config/autostart/universityAnnouncement.desktop

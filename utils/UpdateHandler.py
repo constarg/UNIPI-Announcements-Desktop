@@ -7,9 +7,8 @@ from gi.repository import Notify
 
 class UpdateHandler():
 	def __init__(self):
-		self.jsonPath="../json/websites.json"
-		self.configPath="../config/config.json"
-		self.isCSStudent=jsonHandler.readJson(self.configPath)['configInfo']['isCSStudent']
+		self.jsonPath="json/websites.json"
+		self.configPath="config/config.json"
 
 	def getLatestAnnouncement(self,url,htmlClass):
 		"""
@@ -40,9 +39,10 @@ class UpdateHandler():
 			then updates the json file with the new announcement and displays 
 			a message saying there is a new announcement.
 		"""
+		isCSStudent=jsonHandler.readJson(self.configPath)['configInfo']['isCSStudent']
 		webSites=jsonHandler.readJson(self.jsonPath)
 		# We read the necessary information to proceed with the process
-		if self.isCSStudent:
+		if isCSStudent:
 			# If the unipi student is an IT student then check the cs.unipi page.
 			page="ITMainPage"
 			mainPageUrl=webSites['websites']['ITMainPage']['url']
@@ -69,9 +69,6 @@ class UpdateHandler():
 			This method displays the new announcement
 		"""
 		Notify.init("University News")
-		newNotification=Notify.Notification.new("There is an announcement from the University of Piraeus.",title,"/home/rounnus/Pictures/anime_notifier/icon.png")
+		iconLocation=jsonHandler.readJson(self.configPath)['configInfo']['paths']['notificationIcon']
+		newNotification=Notify.Notification.new("There is an announcement from the University of Piraeus.",title,iconLocation)
 		newNotification.show()
-
-
-#testing=UpdateHandler()
-#testing.getMostRecent()

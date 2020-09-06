@@ -1,4 +1,5 @@
 import jsonHandler
+import os
 import gi
 gi.require_version('Gtk','3.0')
 gi.require_version("Notify", "0.7")
@@ -33,13 +34,13 @@ class Settings(UIBuilder):
 		self.startOnSwitch=self.builder.get_object("starton-switch")
 		self.csStudentSwitch=self.builder.get_object("CS-switch")
 		self.nonCSStudentSwitch=self.builder.get_object("NonCS-switch")
+		# Below we set the previous values.
 		self.startOnSwitch.set_active(jsonHandler.readJson(self.configPath)['configInfo']['startONPowerButtonON'])
 		self.csStudentSwitch.set_active(jsonHandler.readJson(self.configPath)['configInfo']['csButtonON'])
 		self.nonCSStudentSwitch.set_active(jsonHandler.readJson(self.configPath)['configInfo']['nonCSButtonON'])
 		# Below we define what will be the functions of each object in the window.
 		self.window.connect("destroy",self.destroy)
 		self.cancel.connect("clicked",self.destroy)
-		self.startOnSwitch.connect("button-press-event",self.startOnPower)
 		self.csStudentSwitch.connect("button-press-event",self.sigleSwitchON)
 		self.csStudentSwitch.connect("key-press-event",self.sigleSwitchON)
 		self.nonCSStudentSwitch.connect("button-press-event",self.sigleSwitchON)
@@ -56,6 +57,12 @@ class Settings(UIBuilder):
 		configUpdate['configInfo']['startONPowerButtonON']=self.startOnSwitch.get_active()
 		configUpdate['configInfo']['csButtonON']=self.csStudentSwitch.get_active()
 		configUpdate['configInfo']['nonCSButtonON']=self.nonCSStudentSwitch.get_active()
+		# If the user wishes to activate or deactivate the program when 
+		# activating the computer then the following operation will be performed
+		if self.startOnSwitch.get_active():
+			os.system("sh ../shellScripts/addStartUp.sh")
+		else:
+			os.system("sh ../shellScripts/removeStartUp.sh")
 		# In this condition we define the appropriate settings so that the other 
 		# program understands what type of student we are referring to.
 		if self.csStudentSwitch.get_active():
@@ -73,14 +80,7 @@ class Settings(UIBuilder):
 			self.nonCSStudentSwitch.set_active(False)
 		else:
 			self.csStudentSwitch.set_active(False)
-
-	def startOnPower(self,widget,logs):
-		"""
-			This method performs the appropriate procedures so that the 
-			program starts automatically when the system is activated.
-		"""
-		pass
-
+		
 
 Settings()
 Gtk.main()

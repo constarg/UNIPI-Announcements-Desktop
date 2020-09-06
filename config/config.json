@@ -3,6 +3,9 @@
         "isCSStudent": false,
         "startONPowerButtonON": false,
         "csButtonON": false,
-        "nonCSButtonON": true
+        "nonCSButtonON": true,
+        "paths": {
+            "notificationIcon": ""
+        }
     }
 }

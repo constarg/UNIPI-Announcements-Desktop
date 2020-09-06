@@ -1,0 +1,1 @@
+cp ../autostart/autostart.desktop ~/.config/autostart/universityAnnouncement.desktop
