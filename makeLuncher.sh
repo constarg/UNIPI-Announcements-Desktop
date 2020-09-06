@@ -38,13 +38,13 @@ StartupNotify=false
 
 echo "
 cd $(pwd)/utils
-python3 UIHandler.py
+python3 UIHandler.py &
 
 " > shellScripts/runUI.sh
 
 echo "
 cd $(pwd)
-python3 main.py
+python3 main.py &
 
 " > shellScripts/autostart.sh
 
