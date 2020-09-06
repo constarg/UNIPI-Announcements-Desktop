@@ -5,7 +5,10 @@
   The <b>user interface</b> is a simple one which provides three options which are the following:
   1) The user chooses if he wants to start the program automatically at the start of the computer.
   2) The other two options are related to the department of the particular student.
-  
+ 
+# Platform
+  The program was created on the linux platform, however a version will be made which will also run on windows.
+
 # Set - Up
   The program will perform all the necessary functions to be able to run properly if the following command is executed.<br>
   ``` python3 setup.py ```
