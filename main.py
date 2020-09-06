@@ -12,4 +12,4 @@ if __name__=="__main__":
 	while True:
 		# We check every hour if there are new notifications
 		update.getMostRecent()
-		time.sleep(5) # wait for an hour.
+		time.sleep(3600) # wait for an hour.
