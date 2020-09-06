@@ -48,8 +48,8 @@ python3 main.py
 
 " > shellScripts/autostart.sh
 
-chmod 777 shellScripts/runUI.sh
-chmod 777 shellScripts/autostart.sh
+chmod 555 shellScripts/runUI.sh
+chmod 555 shellScripts/autostart.sh
 cp announcementsSettings.desktop /usr/share/applications/
 cp autostart/autostart.desktop /usr/share/applications/announcements.desktop
 echo "Clean up..."
