@@ -1,4 +1,4 @@
-# Functions
+# Function
   This program essentially informs the student when a new announcement<br>is posted on the relevant page of the university.
 
 # User - Interface
