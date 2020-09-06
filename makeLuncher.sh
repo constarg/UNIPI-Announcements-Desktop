@@ -18,7 +18,7 @@ echo "
 Version=1.0
 Type=Application
 Name=Announcements Settings
-Comment=University of Piraeus Notifications
+Comment=University of Piraeus Notifications Settings
 Exec=sh $(pwd)/shellScripts/runUI.sh
 Icon=$icon
 Terminal=false
@@ -29,7 +29,8 @@ echo "
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Announcements AutoStart
+Name=Announcements
+Comment=University of Piraeus Notifications
 Exec=sh $(pwd)/shellScripts/autostart.sh
 Icon=$icon
 Terminal=false
@@ -50,6 +51,7 @@ python3 main.py
 
 chmod 777 shellScripts/runUI.sh
 cp announcementsSettings.desktop /usr/share/applications/
+cp autostart/autostart.desktop /usr/share/applications/announcements.desktop
 echo "Clean up..."
 rm announcementsSettings.desktop
 echo "Done."
