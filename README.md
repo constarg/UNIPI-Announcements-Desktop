@@ -2,7 +2,7 @@
   This program essentially informs the student when a new announcement<br>is posted on the relevant page of the university.
 
 # User - Interface
-  The <b>user interface</b> is a simple one which provides three options which are the following:
+  The <b>user interface</b> provides three options which are the following:
   1) The user chooses if he wants to start the program automatically at the start of the computer.
   2) The other two options are related to the department of the particular student.
  
