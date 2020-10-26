@@ -7,7 +7,7 @@
   2) The other two options are related to the department of the particular student.
  
 # Platform
-  The program was created on the linux platform, however a version will be made which will also run on windows.
+  The program was created on the linux platform. However a version will be made which will also run on windows.
 
 # Set - Up
   The program will perform all the necessary functions to be able to run properly if the following command is executed.<br>
