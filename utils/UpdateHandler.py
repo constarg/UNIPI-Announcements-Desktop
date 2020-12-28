@@ -17,7 +17,7 @@ class UpdateHandler():
 		"""
 		try:
 			# We are trying to do a get request.
-			respone=requests.get(url)
+			respone=requests.get(url, verify=False)
 		except ConnectionError:
 			return 0
 
